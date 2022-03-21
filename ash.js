@@ -1,59 +1,91 @@
-//1.Given an array․ Compute the length of the array. (without using .length)
-let array = [];
+//1.Given three numbers a, b (a ≤ b) and step. Create an array of evenly spaced elements 
+//starting from a to b spaced by step
 
-console.log(array);
-
-if (array && array.erkarutyun) {
-  console.log("array");
-}
-
-//2.Given an array of numbers. Print the sum of the elements in array
-const array = [1, 12, 4];
-let sum = 0;
-for (let i = 0; i < array.length; i++) {
-    sum += array[i];
-}
-console.log(sum)
-
-//3.Given two numbers. Print powers of 2 between that numbers. (without using 
-//Math.pow)
-
-
-
-//4.Given a number as input, insert dashes (-) between each two even numbers. 
-
-function insertDash(string) {
-    let array = string.split(""),
-        i = array.length;
-
-    while (i--) {
-        if (array[i] % 10 && array[i + 3] % 10) {
-            array.splice(i + 3, 0, '-');
+function range(start, end, step = 1) {
+  
+    function range(start, end, step = 1) {
+  
+        const allNumbers = [start, end, step];
+      
+        if (!allNumbers) {
+          
         }
-    }
-    return array.join('');
+       if (step <= 0) {
+          
+        } else if (start > end) {
+          step = -step;
+        }
+        
+        const length = Math.floor(Math.abs((end - start) / step)) + 1;
+        
+        return Array.from(Array(length), (x, index) => start + index * step);
+        
+      }
+      console.log(range(1, 5)); 
+
+
+
+    //2. Given a string and a symbol. Find the number of occurrences of the symbol in the string.
+function char_count(str, letter) 
+{
+ let letter_Count = 0;
+ for (let position = 0; position < str.length; position++) 
+ {
+    if (str.charAt(position) == letter) 
+      {
+      letter_Count += 1;
+      }
+  }
+  return letter_Count;
 }
 
-console.log(insertDash("7180322"));
+console.log(char_count('another string', 't'));
 
+//3.Given a string. Check whether the string is palindrome or not.
+function checkPalindrome(string) {
 
-//5.Insert a n positive number. Print the n-st prime number.
-function findPrimeNumber(n){
-    let c = 1, nPrime = 2, i = 3; 
-    console.log('n');
-    function isPrime(k){ 
-      for( let j = 2; j < k; j++){
-        if( k % j === 0 ){ return false; } 
+    const len = string.length;
+
+    for (let i = 0; i < len / 2; i++) {
+      
+      if (string[i] !== string[len - 1 - i]) {
+          return 'No';
       }
-      return true;
-    }
-      while(c < n){ 
-        if( isPrime(i) ) {  
-        c++; 
-        nPrime = i; 
-      }
-      i++; 
-    } 
-     
-    return nPrime;
   }
+  return 'yes';
+}
+const string = prompt('Enter a string: ');
+
+ const value = checkPalindrome(string);
+
+console.log(value);
+
+
+//4.Given an array of numbers. Find the maximum element in array
+function arrayMax(arr) {
+  let len = arr.length, max = -Infinity;
+  while (len--) {
+    if (arr[len] > max) {
+      max = arr[len];
+    }
+  }
+  return max;
+};
+
+//5.Given an array. Create the array which elements are products between two neighbours.
+
+
+//6.
+
+
+//7. Print the following number pattern:
+let n = 5; // height of pattern
+let string = "";
+for (let i = 1; i <= n; i++) {
+  for (let j = 1; j <= i; j++) {
+    string += j;
+  }
+  string += "\n";
+}
+console.log(string);
+
